@@ -9,10 +9,10 @@ Essentially, this repo uses C# and type assemblies to create .Net classes which 
 More specifically, I create easily readable/usable Cmdlets using these obscure low level references 
 so that the end user can benefit through easy implementation.
 In other words, I want basic PowerShell users to have fun with this.
-* - Get-MouseCoordinates
-* - Click-MouseLeft
-* - Click-MouseRight
-* - DoubleClick-Mouse
-* - Send-Key
-* - Copy-Text
+*  Get-MouseCoordinates
+*  Click-MouseLeft
+*  Click-MouseRight
+*  DoubleClick-Mouse
+*  Send-Key
+*  Copy-Text
 
