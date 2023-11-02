@@ -95,7 +95,7 @@ Add-Type -TypeDefinition $Mouse_Class -ReferencedAssemblies System.Windows.Forms
 
 
 
-function Get-MouseCoordinates {
+function Get-MouseCoordinates { # -- Works
     [CmdletBinding()]
     param()
 
@@ -108,7 +108,7 @@ function Get-MouseCoordinates {
 }
 
 
-function Click-MouseLeft {
+function Click-MouseLeft { # -- Works
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]
@@ -127,7 +127,7 @@ function Click-MouseLeft {
 }
 
 
-function Click-MouseRight {
+function Click-MouseRight { # -- Works
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]
@@ -147,7 +147,7 @@ function Click-MouseRight {
 
 
 
-function DoubleClick-Mouse {
+function DoubleClick-Mouse { # -- Works
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]
@@ -157,7 +157,7 @@ function DoubleClick-Mouse {
     )
     try {
         [Click_Stuff]::LeftClickAtPoint($x, $y)
-        Start-Sleep -Milliseconds 500
+        Start-Sleep -Milliseconds 100
         [Click_Stuff]::LeftClickAtPoint($x, $y)
         Write-Host "[*] Double-Clicked at point ($x,$y)" -ForegroundColor Green -BackgroundColor Black
     }
@@ -169,7 +169,7 @@ function DoubleClick-Mouse {
 
 
 
-function Send-Key {
+function Send-Key { # -- Works
     param(
         [Parameter(Mandatory=$true)]
         [string]$key
@@ -188,32 +188,8 @@ function Send-Key {
 }
 
 
-function Copy-Text {
-    [CmdletBinding()]
-    param(
-    )
 
-    try {
-        # Call the Send-Key function to send the Ctrl+C key combination
-        Send-Key '^c'
-
-        # Wait for a moment to allow the text to be copied to the clipboard
-        Start-Sleep -Milliseconds 500
-
-        # Retrieve the text from the clipboard and store it in a variable
-        $copiedText = Get-Clipboard
-
-        # Return the copied text as a PowerShell object
-        Write-Output $copiedText
-    }
-    catch {
-        Write-Host "[!] Failed to copy text" -ForegroundColor Red -BackgroundColor Black
-        Write-Host $_.Exception.Message
-    }
-}
-
-
-function Copy-Text {
+function Copy-Text { # -- Works
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true)]
@@ -236,7 +212,7 @@ function Copy-Text {
         $copiedText = Get-Clipboard
 
         # Return the copied text as a PowerShell object
-        Write-Output $copiedText
+        Write-Output "Copied this text: $copiedText"
     }
     catch {
         Write-Host "[!] Failed to copy text" -ForegroundColor Red -BackgroundColor Black
